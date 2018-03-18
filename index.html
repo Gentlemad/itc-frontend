@@ -2,141 +2,151 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 </head>
 
 <body>
 
-<script>
-//Base1
-  function plus(number1,number2) {
-   return number1+number2;
-  }
+    <script>
+        //Base1
+        function plus(number1, number2) {
+            return number1 + number2;
+        }
 
-//Base2
- function multiply(number1,number2) {
-    var z=0;
-   for (var i = 0; i< number1; i++) {
-    z+=plus(0,number2)
-  }
-   return z;
-  }
+        //Base2
+        function multiply(number1, number2) {
+            let z = 0;
+            for (let i = 0; i < number1; i++) {
+                z += plus(0, number2)
+            }
+            return z;
+        }
 
-//Base3
- function mergeArrays(array1, array2) {
-	var mergeArray = [];
-		for (var i = 0; i < array1.length; i++) {
-      mergeArray[i] = array1[i];
-		}
-    var k = 0;
-		for (i; i < (array2.length + array1.length); i++) {
-			mergeArray[i] = array2[k];
-			k++;
-			}
+        //Base3
+        function mergeArrays(array1, array2) {
+            let mergeArray = [];
+            let i = 0;
+            for (i; i < array1.length; i++) {
+                mergeArray[i] = array1[i];
+            }
+            let k = 0;
+            for (i; i < (array2.length + array1.length); i++) {
+                mergeArray[i] = array2[k];
+                k++;
+            }
 
-		return mergeArray;
-	}
+            return mergeArray;
+        }
 
-//Base4
-  const People = [
-   {
-		age : "18",
-		sex : "female",
-		favouriteFilm : "La-La-Land"
-   },
+        //Base4
+        const People = [{
+                age: "18",
+                sex: "female",
+                favouriteFilm: "La-La-Land"
+            },
 
-   {
-		age : "23",
-		sex : "male",
-		favouriteFilm : "Pulp Fiction"
-   },
+            {
+                age: "23",
+                sex: "male",
+                favouriteFilm: "Pulp Fiction"
+            },
 
-   {
-		age : "19",
-		sex : "female",
-		favouriteFilm : "Birdman"
-	}
-  ];
+            {
+                age: "19",
+                sex: "female",
+                favouriteFilm: "Birdman"
+            }
+        ];
 
-function filterFemales(People) {
-		for (let i = 0; i < People.length; i++) {
-			if (People[i].sex == "female") console.log(People[i]);
-		}
-	}
+        function filterFemales(People) {
+            for (let i = 0; i < People.length; i++) {
+                if (People[i].sex == "female") console.log(People[i]);
+            }
+        }
 
-//Base5
-function getQuadrant(x, y) {
-    if (x > 0 && y > 0) {return "I"}
-    else if (x < 0 && y > 0) {return "II"}
-    else if (x < 0 && y < 0) {return "III"}
-    else if (x > 0 && y < 0) {return "IV"}
-    else {return "the point lies on the coordinate axis"}
-    }
+        //Base5
+        function getQuadrant(x, y) {
+            if (x > 0 && y > 0) {
+                return "I"
+            } else if (x < 0 && y > 0) {
+                return "II"
+            } else if (x < 0 && y < 0) {
+                return "III"
+            } else if (x > 0 && y < 0) {
+                return "IV"
+            } else {
+                return "the point lies on the coordinate axis"
+            }
+        }
 
-//Main1
-function newPlus(...Args) {
-    let sum = 0;
-      for (let i = 0; i < Args.length; i++) {
-      sum += Args[i];
-      }
-    return sum;
-    }
+        //Main1
+        function newPlus(...Args) {
+            let sum = 0;
+            for (let i = 0; i < Args.length; i++) {
+                sum += Args[i];
+            }
+            return sum;
+        }
 
-//Main2
-function newMultiply(a, b) {
-    return a * b
-    }
-let multiplied = [2, 3, 4, 5, 6].reduce(newMultiply);
+        //Main2
+        function newMultiply(a, b) {
+            return a * b
+        }
+        let multiplied = [2, 3, 4, 5, 6].reduce(newMultiply);
 
-//Main3
-function objectToQueryString(obj) {
-    let str = [];
-      for (let key in obj) {
-        str += encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]) + "&";
-      }
-    return str.substring(0, str.length - 1)
-    }
+        //Main3
+        function objectToQueryString(obj) {
+            let str = [];
+            for (let key in obj) {
+                str += encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]) + "&";
+            }
+            return str.substring(0, str.length - 1)
+        }
 
-//Main4
-const filteredFemales = People.filter((pers) => {if (pers.sex == "female") return pers});
+        //Main4
+        const filteredFemales = People.filter(function(pers) {
+            if (pers.sex == "female") return pers
+        });
 
-//Main5
-const person = {
-         address: {
-           street: "Кутузовский проспект"
-         }
-      }
+        //Main5
+        const person = {
+            address: {
+                street: "Кутузовский проспект"
+            }
+        }
 
-function getIn(obj, path, def) {
-            for (i = 0; i < path.length; i++) {
+        function getIn(obj, path, def) {
+            for (let i = 0; i < path.length; i++) {
                 obj = obj[path[i]]
             }
             if (obj) {
                 return obj
             } else {
-                 return def
-             }
+                return def
+            }
         }
 
 
 
-//Outputs//
-console.log(plus(1,2));
-console.log(multiply(3, 10));
-console.log(mergeArrays([1,2,3],[4,5]));
-filterFemales(People);
-console.log(getQuadrant(1, 2));
-console.log(getQuadrant(-1, 2));
-console.log(getQuadrant(-2, -3));
-console.log(getQuadrant(4, -7));
-console.log(getQuadrant(0, 0));
-console.log(newPlus(2, 3, 5, 7, 3));
-console.log(multiplied);
-console.log(objectToQueryString({ name1: 'John', name2: 'Федор' }));
-console.log(filteredFemales);
-console.log(getIn(person, ['address', 'street'], 'Бомж'));
-
-</script>
+        //Outputs//
+        console.log(plus(1, 2));
+        console.log(multiply(3, 10));
+        console.log(mergeArrays([1, 2, 3], [4, 5]));
+        filterFemales(People);
+        console.log(getQuadrant(1, 2));
+        console.log(getQuadrant(-1, 2));
+        console.log(getQuadrant(-2, -3));
+        console.log(getQuadrant(4, -7));
+        console.log(getQuadrant(0, 0));
+        console.log(newPlus(2, 3, 5, 7, 3));
+        console.log(multiplied);
+        console.log(objectToQueryString({
+            name1: 'John',
+            name2: 'Федор'
+        }));
+        console.log(filteredFemales);
+        console.log(getIn(person, ['address', 'street'], 'Бомж'));
+    </script>
 
 </body>
 
